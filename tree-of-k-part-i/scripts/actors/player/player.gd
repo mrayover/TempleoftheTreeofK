@@ -96,6 +96,7 @@ extends CharacterBody2D
 
 const PROJECTILE_SCENE: PackedScene = preload("res://scenes/projectiles/Projectile.tscn")
 const PLAYER_CHARGE_HELPER = preload("res://scripts/actors/player/player_charge_helper.gd")
+const PLAYER_VISUAL_HELPER = preload("res://scripts/actors/player/player_visual_helper.gd")
 const TORCH_TEXTURE: Texture2D = preload("res://Assets/Archetypes/TorchFinalSprite.png")
 const SNAKE_TEXTURE: Texture2D = preload("res://Assets/Archetypes/SnakeFinalsprite.png")
 const CROW_TEXTURE: Texture2D = preload("res://Assets/Archetypes/CrowFinalSprite.png")
@@ -801,20 +802,10 @@ func _initialize_grapple_traverse_visual() -> void:
 	if grapple_rope_visual != null or grapple_head_visual != null:
 		return
 
-	grapple_rope_visual = Sprite2D.new()
-	grapple_rope_visual.centered = false
-	grapple_rope_visual.visible = false
-	grapple_rope_visual.z_index = 9
-	grapple_rope_visual.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	grapple_rope_visual.texture = grapple_rope_texture
+	grapple_rope_visual = PLAYER_VISUAL_HELPER.create_rope_visual(grapple_rope_texture, 9)
 	add_child(grapple_rope_visual)
 
-	grapple_head_visual = Sprite2D.new()
-	grapple_head_visual.centered = true
-	grapple_head_visual.visible = false
-	grapple_head_visual.z_index = 10
-	grapple_head_visual.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	grapple_head_visual.texture = grapple_head_texture
+	grapple_head_visual = PLAYER_VISUAL_HELPER.create_head_visual(grapple_head_texture, 10)
 	add_child(grapple_head_visual)
 
 func _update_grapple_traverse_visual() -> void:
@@ -845,29 +836,16 @@ func _update_grapple_traverse_visual() -> void:
 		return
 
 	var angle := direction.angle()
-
-	if grapple_rope_texture != null:
-		var rope_width: float = max(1.0, float(grapple_rope_texture.get_width()))
-		var rope_height: float = float(grapple_rope_texture.get_height())
-
-		grapple_rope_visual.texture = grapple_rope_texture
-		grapple_rope_visual.position = local_start
-		grapple_rope_visual.rotation = angle
-		grapple_rope_visual.scale = Vector2(distance / rope_width, 1.0)
-		grapple_rope_visual.offset = Vector2(0.0, -rope_height * 0.5)
-		grapple_rope_visual.visible = true
-	else:
-		grapple_rope_visual.visible = false
-
-	if grapple_head_texture != null:
-		grapple_head_visual.texture = grapple_head_texture
-		grapple_head_visual.position = local_end
-		grapple_head_visual.rotation = angle
-		grapple_head_visual.scale = Vector2.ONE
-		grapple_head_visual.offset = Vector2.ZERO
-		grapple_head_visual.visible = true
-	else:
-		grapple_head_visual.visible = false
+	PLAYER_VISUAL_HELPER.update_rope_and_head_visual(
+		grapple_rope_visual,
+		grapple_head_visual,
+		grapple_rope_texture,
+		grapple_head_texture,
+		local_start,
+		local_end,
+		distance,
+		angle
+	)
 
 func _apply_corner_correction() -> void:
 	if not corner_correction_enabled:
@@ -1094,20 +1072,10 @@ func _initialize_grapple_attack_visual() -> void:
 	if grapple_attack_rope_visual != null or grapple_attack_head_visual != null:
 		return
 
-	grapple_attack_rope_visual = Sprite2D.new()
-	grapple_attack_rope_visual.centered = false
-	grapple_attack_rope_visual.visible = false
-	grapple_attack_rope_visual.z_index = 10
-	grapple_attack_rope_visual.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	grapple_attack_rope_visual.texture = grapple_attack_rope_texture
+	grapple_attack_rope_visual = PLAYER_VISUAL_HELPER.create_rope_visual(grapple_attack_rope_texture, 10)
 	add_child(grapple_attack_rope_visual)
 
-	grapple_attack_head_visual = Sprite2D.new()
-	grapple_attack_head_visual.centered = true
-	grapple_attack_head_visual.visible = false
-	grapple_attack_head_visual.z_index = 11
-	grapple_attack_head_visual.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	grapple_attack_head_visual.texture = grapple_attack_head_texture
+	grapple_attack_head_visual = PLAYER_VISUAL_HELPER.create_head_visual(grapple_attack_head_texture, 11)
 	add_child(grapple_attack_head_visual)
 
 func _update_grapple_attack_visual() -> void:
@@ -1176,32 +1144,16 @@ func _update_grapple_attack_visual() -> void:
 		return
 
 	var angle := direction.angle()
-
-	if grapple_attack_rope_texture != null:
-		var rope_width: float = float(grapple_attack_rope_texture.get_width())
-		if rope_width < 1.0:
-			rope_width = 1.0
-
-		var rope_height: float = float(grapple_attack_rope_texture.get_height())
-
-		grapple_attack_rope_visual.texture = grapple_attack_rope_texture
-		grapple_attack_rope_visual.position = local_start
-		grapple_attack_rope_visual.rotation = angle
-		grapple_attack_rope_visual.scale = Vector2(distance / rope_width, 1.0)
-		grapple_attack_rope_visual.offset = Vector2(0.0, -rope_height * 0.5)
-		grapple_attack_rope_visual.visible = true
-	else:
-		grapple_attack_rope_visual.visible = false
-
-	if grapple_attack_head_texture != null:
-		grapple_attack_head_visual.texture = grapple_attack_head_texture
-		grapple_attack_head_visual.position = local_end
-		grapple_attack_head_visual.rotation = angle
-		grapple_attack_head_visual.scale = Vector2.ONE
-		grapple_attack_head_visual.offset = Vector2.ZERO
-		grapple_attack_head_visual.visible = true
-	else:
-		grapple_attack_head_visual.visible = false
+	PLAYER_VISUAL_HELPER.update_rope_and_head_visual(
+		grapple_attack_rope_visual,
+		grapple_attack_head_visual,
+		grapple_attack_rope_texture,
+		grapple_attack_head_texture,
+		local_start,
+		local_end,
+		distance,
+		angle
+	)
 
 func _start_grapple_attack() -> void:
 	grapple_attack_length = 0.0
@@ -1807,14 +1759,7 @@ func _update_charge_pips() -> void:
 	var shown_charge: int = stored_charge_power
 	if is_charging:
 		shown_charge = _get_charge_power_from_timer()
-
-	charge_pip_1.visible = shown_charge >= 1
-	charge_pip_2.visible = shown_charge >= 2
-	charge_pip_3.visible = shown_charge >= 3
-
-	charge_pip_1.color = Color.WHITE
-	charge_pip_2.color = Color.WHITE
-	charge_pip_3.color = Color.WHITE
+	PLAYER_VISUAL_HELPER.update_charge_pips(charge_pip_1, charge_pip_2, charge_pip_3, shown_charge)
 
 func _apply_enemy_contact_damage(was_falling: bool) -> void:
 	if invulnerability_timer > 0.0:
