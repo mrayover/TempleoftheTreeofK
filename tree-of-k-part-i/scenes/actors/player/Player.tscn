@@ -108,10 +108,8 @@ crouch_speed_scale = 0.7
 grapple_attack_drop_window = 1.0
 grapple_attack_combo_window_1_duration = 1.0
 grapple_attack_combo_window_2_duration = 1.0
-grapple_attack_combo_2_active_duration = 0.4
-grapple_attack_combo_3_active_duration = 0.4
-grapple_attack_heavy_release_active_duration = 0.1
-grapple_attack_combo_2_arc_height = 200.0
+grapple_attack_heavy_release_active_duration = 0.5
+grapple_attack_combo_2_arc_height = 75.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=168585771]
 position = Vector2(-1, 23.75)
