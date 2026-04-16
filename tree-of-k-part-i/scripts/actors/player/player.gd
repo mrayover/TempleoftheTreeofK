@@ -95,6 +95,7 @@ extends CharacterBody2D
 @export var crouch_speed_scale: float = 0.5
 
 const PROJECTILE_SCENE: PackedScene = preload("res://scenes/projectiles/Projectile.tscn")
+const PLAYER_CHARGE_HELPER = preload("res://scripts/actors/player/player_charge_helper.gd")
 const TORCH_TEXTURE: Texture2D = preload("res://Assets/Archetypes/TorchFinalSprite.png")
 const SNAKE_TEXTURE: Texture2D = preload("res://Assets/Archetypes/SnakeFinalsprite.png")
 const CROW_TEXTURE: Texture2D = preload("res://Assets/Archetypes/CrowFinalSprite.png")
@@ -897,24 +898,17 @@ func _on_ladder_detector_area_exited(area: Area2D) -> void:
 		if ladder_count < 0:
 			ladder_count = 0
 func _get_max_charge_power() -> int:
-	if RunState.current_archetype == RunState.ARCHETYPE_TORCH:
-		return 4
-	return 3
+	return PLAYER_CHARGE_HELPER.get_max_charge_power(RunState.current_archetype, RunState.ARCHETYPE_TORCH)
 
 func _get_charge_power_from_timer() -> int:
-	var max_chargeable: int = min(_get_max_charge_power(), current_shots)
-	var charge_power: int = 0
-
-	if charge_timer >= charge_first_pip_time:
-		charge_power = 1
-	if charge_timer >= charge_two_hit_time:
-		charge_power = 2
-	if charge_timer >= charge_three_hit_time:
-		charge_power = 3
-	if charge_timer >= charge_three_hit_time + charge_first_pip_time:
-		charge_power = 4
-
-	return min(charge_power, max_chargeable)
+	return PLAYER_CHARGE_HELPER.get_charge_power_from_timer(
+		charge_timer,
+		current_shots,
+		_get_max_charge_power(),
+		charge_first_pip_time,
+		charge_two_hit_time,
+		charge_three_hit_time
+	)
 
 func _start_shot_recharge() -> void:
 	if current_shots >= burst_shots:
