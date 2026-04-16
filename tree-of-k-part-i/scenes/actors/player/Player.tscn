@@ -102,6 +102,7 @@ dash_speed = 550.0
 dash_duration = 0.38
 dash_cooldown = 1.5
 shield_break_invulnerability_time = 1.0
+can_flight = true
 crouch_collision_height = 18.0
 crouch_sprite_offset_y = 18.0
 crouch_speed_scale = 0.7

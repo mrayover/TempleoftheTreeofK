@@ -21,7 +21,7 @@ size = Vector2(108, 42)
 [node name="Champion" type="CharacterBody2D" unique_id=1859186484]
 collision_layer = 2
 script = ExtResource("1_1yv3s")
-champion_max_hp = 5
+champion_max_hp = 1
 dash_strike_stun_time = 0.4
 dash_strike_attack_lock_time = 0.4
 
