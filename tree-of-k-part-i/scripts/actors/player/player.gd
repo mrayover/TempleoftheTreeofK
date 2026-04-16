@@ -97,6 +97,7 @@ extends CharacterBody2D
 const PROJECTILE_SCENE: PackedScene = preload("res://scenes/projectiles/Projectile.tscn")
 const PLAYER_CHARGE_HELPER = preload("res://scripts/actors/player/player_charge_helper.gd")
 const PLAYER_VISUAL_HELPER = preload("res://scripts/actors/player/player_visual_helper.gd")
+const PLAYER_ARCHETYPE_VISUAL_HELPER = preload("res://scripts/actors/player/player_archetype_visual_helper.gd")
 const TORCH_TEXTURE: Texture2D = preload("res://Assets/Archetypes/TorchFinalSprite.png")
 const SNAKE_TEXTURE: Texture2D = preload("res://Assets/Archetypes/SnakeFinalsprite.png")
 const CROW_TEXTURE: Texture2D = preload("res://Assets/Archetypes/CrowFinalSprite.png")
@@ -341,34 +342,7 @@ func _apply_archetype_visual() -> void:
 		RunState.ARCHETYPE_HEART:
 			texture = HEART_TEXTURE
 
-	var frame_width: int = 36
-	var frame_height: int = 45
-
-	var frames := SpriteFrames.new()
-
-	frames.add_animation("idle")
-	frames.set_animation_loop("idle", true)
-	frames.set_animation_speed("idle", 6.0)
-
-	for i in range(5):
-		var atlas := AtlasTexture.new()
-		atlas.atlas = texture
-		atlas.region = Rect2(i * frame_width, 0, frame_width, frame_height)
-		frames.add_frame("idle", atlas)
-
-	frames.add_animation("walk")
-	frames.set_animation_loop("walk", true)
-	frames.set_animation_speed("walk", 10.0)
-
-	for i in range(5, 8):
-		var atlas := AtlasTexture.new()
-		atlas.atlas = texture
-		atlas.region = Rect2(i * frame_width, 0, frame_width, frame_height)
-		frames.add_frame("walk", atlas)
-
-	anim.sprite_frames = frames
-	anim.animation = &"idle"
-	anim.play("idle")
+	PLAYER_ARCHETYPE_VISUAL_HELPER.apply_archetype_frames(anim, texture)
 
 func set_input_enabled(enabled: bool) -> void:
 	input_enabled = enabled
