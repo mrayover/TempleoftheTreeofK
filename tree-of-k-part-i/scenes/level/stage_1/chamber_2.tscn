@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://3u2l5bowykan"]
+
+[ext_resource type="PackedScene" uid="uid://cfkk022kw5bdl" path="res://scenes/templates/chamber_template.tscn" id="1_etork"]
+[ext_resource type="PackedScene" path="res://scenes/props/regular_door.tscn" id="2_kbot1"]
+[ext_resource type="PackedScene" uid="uid://b1a70wrsehrqc" path="res://scenes/items/champion_key.tscn" id="3_5nwa0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbot1"]
+size = Vector2(384, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nwa0"]
+size = Vector2(384, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tn5y"]
+size = Vector2(8, 216)
+
+[node name="chamber_2" unique_id=1074320376 instance=ExtResource("1_etork")]
+
+[node name="Floor" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="0" unique_id=252644706]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Floor" index="0" unique_id=849423394]
+position = Vector2(192, 208)
+shape = SubResource("RectangleShape2D_kbot1")
+debug_color = Color(0.95138437, 7.70092e-07, 0.56635123, 0.41960785)
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Floor" index="1" unique_id=523762259]
+position = Vector2(0, 200)
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 16, 0, 0)
+
+[node name="Ceiling" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="1" unique_id=1618689427]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Ceiling" index="0" unique_id=1344071497]
+position = Vector2(192, 8)
+shape = SubResource("RectangleShape2D_5nwa0")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Ceiling" index="1" unique_id=1586050885]
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 16, 0, 0)
+
+[node name="Left_Wall" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="2" unique_id=221803148]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Left_Wall" index="0" unique_id=47380405]
+position = Vector2(0, 108)
+shape = SubResource("RectangleShape2D_7tn5y")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Left_Wall" index="1" unique_id=145461592]
+polygon = PackedVector2Array(-4, 0, 4, 0, 4, 216, -4, 216)
+
+[node name="Right_Wall" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="3" unique_id=1499007102]
+position = Vector2(384, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Right_Wall" index="0" unique_id=870868615]
+position = Vector2(0, 108)
+shape = SubResource("RectangleShape2D_7tn5y")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Right_Wall" index="1" unique_id=1993919165]
+polygon = PackedVector2Array(-4, 0, 4, 0, 4, 216, -4, 216)
+
+[node name="RegularDoor" parent="Doors" parent_id_path=PackedInt32Array(500147425) index="2" unique_id=1736564801 instance=ExtResource("2_kbot1")]
+position = Vector2(30, 180)
+target_spawn_path = NodePath("Chambers/chamber_1/SpawnPoints/Spawn_East")
+target_camera_path = NodePath("Chambers/chamber_1/CameraTarget")
+target_room_name = "chamber_1"
+
+[node name="RegularDoor_East" parent="Doors" parent_id_path=PackedInt32Array(500147425) index="3" unique_id=991234001 instance=ExtResource("2_kbot1")]
+position = Vector2(354, 180)
+target_spawn_path = NodePath("Chambers/chamber_3/SpawnPoints/Spawn_West")
+target_camera_path = NodePath("Chambers/chamber_3/CameraTarget")
+target_room_name = "chamber_3"
+
+[node name="Spawn_West" parent="SpawnPoints" parent_id_path=PackedInt32Array(90059791) index="0" unique_id=1855045319]
+position = Vector2(60, 180)
+
+[node name="Spawn_East" parent="SpawnPoints" parent_id_path=PackedInt32Array(90059791) index="1" unique_id=721011482]
+position = Vector2(314, 180)
+
+[node name="CameraTarget" type="Marker2D" parent="." index="6" unique_id=1490384942]
+position = Vector2(192, 108)
+
+[node name="ChampionKey" parent="." index="7" unique_id=1869462969 instance=ExtResource("3_5nwa0")]
+position = Vector2(150, 180)
+pair_index = 1
+
+[node name="ChampionKey2" parent="." index="8" unique_id=824541046 instance=ExtResource("3_5nwa0")]
+position = Vector2(258, 182)
+pair_index = 1
+key_half_id = "B"

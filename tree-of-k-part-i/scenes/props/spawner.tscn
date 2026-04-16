@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://diuf0jvclopsh"]
+
+[ext_resource type="Script" uid="uid://wri5rf4f4npm" path="res://scripts/props/spawner.gd" id="1_2vbf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nest_hurtbox"]
+size = Vector2(24, 24)
+
+[node name="Spawner" type="Node2D" unique_id=1795744022 groups=["enemy"]]
+script = ExtResource("1_2vbf6")
+
+[node name="Visual" type="Polygon2D" parent="." unique_id=840440642]
+color = Color(1, 0.36862746, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1479617353 groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1292139797 groups=["enemy"]]
+shape = SubResource("RectangleShape2D_nest_hurtbox")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=703741168]
+wait_time = 2.0
+autostart = true

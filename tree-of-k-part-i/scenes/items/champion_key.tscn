@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://b1a70wrsehrqc"]
+
+[ext_resource type="Script" uid="uid://cjq136jvhhe67" path="res://scripts/items/champion_key.gd" id="1_bsmfx"]
+[ext_resource type="Texture2D" uid="uid://dg27c2xpp071o" path="res://Assets/Keys/ChampionKey_1.png" id="2_bqmjd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ar6v"]
+atlas = ExtResource("2_bqmjd")
+region = Rect2(0, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t02de"]
+atlas = ExtResource("2_bqmjd")
+region = Rect2(16, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx5om"]
+atlas = ExtResource("2_bqmjd")
+region = Rect2(32, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c77mx"]
+atlas = ExtResource("2_bqmjd")
+region = Rect2(48, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8twu"]
+atlas = ExtResource("2_bqmjd")
+region = Rect2(64, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pia4"]
+atlas = ExtResource("2_bqmjd")
+region = Rect2(80, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmy06"]
+atlas = ExtResource("2_bqmjd")
+region = Rect2(96, 0, 16, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66vxn"]
+atlas = ExtResource("2_bqmjd")
+region = Rect2(112, 0, 16, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnl3u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ar6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t02de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx5om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c77mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8twu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pia4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmy06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66vxn")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnrsi"]
+size = Vector2(12, 18.5)
+
+[node name="ChampionKey" type="Area2D" unique_id=1869462969]
+script = ExtResource("1_bsmfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1367559656]
+sprite_frames = SubResource("SpriteFrames_mnl3u")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=641259525]
+position = Vector2(-1, 0.25)
+shape = SubResource("RectangleShape2D_vnrsi")

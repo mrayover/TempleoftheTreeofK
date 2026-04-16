@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cud0yu4fhjbhi"]
+
+[ext_resource type="PackedScene" uid="uid://cnstc6rnmcxfv" path="res://scenes/templates/corridor_template.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/props/regular_door.tscn" id="2_pq51d"]
+[ext_resource type="PackedScene" uid="uid://dnt0lqghknqdy" path="res://scenes/props/champion_door.tscn" id="3_chdoor"]
+[ext_resource type="PackedScene" uid="uid://b1a70wrsehrqc" path="res://scenes/items/champion_key.tscn" id="4_key"]
+
+[node name="corridor_1" unique_id=836756110 instance=ExtResource("1")]
+
+[node name="RegularDoor" parent="." index="1" unique_id=1001558675 instance=ExtResource("2_pq51d")]
+position = Vector2(357, -29)
+target_spawn_path = NodePath("Chambers/chamber_4/SpawnPoints/Spawn_West")
+target_camera_path = NodePath("Chambers/chamber_4/CameraTarget")
+target_room_name = "chamber_4"
+
+[node name="Spawn_East" type="Marker2D" parent="." index="2" unique_id=1236806746]
+position = Vector2(330, -25)
+
+[node name="CameraTarget" type="Marker2D" parent="." index="3" unique_id=1606750884]
+position = Vector2(192, -32)
+
+[node name="LayoutGuide" type="Node2D" parent="." index="4" unique_id=1290086027]
+
+[node name="LeftTopEdge" type="Marker2D" parent="LayoutGuide" index="0" unique_id=874890687]
+position = Vector2(0, -64)
+
+[node name="RightTopEdge" type="Marker2D" parent="LayoutGuide" index="1" unique_id=91010724]
+position = Vector2(384, -64)
+
+[node name="LeftFloorEdge" type="Marker2D" parent="LayoutGuide" index="2" unique_id=615728527]
+
+[node name="RightFloorEdge" type="Marker2D" parent="LayoutGuide" index="3" unique_id=1335775296]
+position = Vector2(384, 0)
+
+[node name="ChampionKey_1" parent="." index="5" unique_id=1390199985 instance=ExtResource("4_key")]
+position = Vector2(235, -20)
+pair_index = 0
+key_half_id = "A"
+
+[node name="ChampionKey_2" parent="." index="6" unique_id=170122682 instance=ExtResource("4_key")]
+position = Vector2(150, -20)
+pair_index = 0
+key_half_id = "B"
+
+[node name="ChampionDoor" parent="." index="7" unique_id=1866813031 instance=ExtResource("3_chdoor")]
+position = Vector2(36, -34)
+scale = Vector2(0.5, 0.5)
+door_type = 2
+target_scene_path = "res://scenes/level/stage_1/champion_arena.tscn"
+locked_prompt = "Need 2 Keys"

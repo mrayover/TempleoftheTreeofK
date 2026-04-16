@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/items/guardian_fragment.gd" id="1_guardian_fragment"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guardian_fragment"]
+size = Vector2(20, 20)
+
+[node name="GuardianFragment" type="Area2D"]
+script = ExtResource("1_guardian_fragment")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.4, 0.8, 1, 1)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_guardian_fragment")

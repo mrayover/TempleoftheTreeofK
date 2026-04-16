@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1ql8sdno0vkc"
+path="res://.godot/imported/temple of tree of k testMid Slow.mp3-bdb5b7b79440810d6006814723efeb8e.mp3str"
+
+[deps]
+
+source_file="res://Sound/Test/Music/Test Background/Live/temple of tree of k testMid Slow.mp3"
+dest_files=["res://.godot/imported/temple of tree of k testMid Slow.mp3-bdb5b7b79440810d6006814723efeb8e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,460 @@
+[gd_scene format=4 uid="uid://dc8o2wyckmgs4"]
+
+[ext_resource type="PackedScene" uid="uid://c307vnewc41u" path="res://scenes/props/regular_door.tscn" id="1_je51i"]
+[ext_resource type="Script" uid="uid://wh1jyf27tkko" path="res://scripts/level/Gray Box/gray_box_tall.gd" id="1_s8ju6"]
+[ext_resource type="Texture2D" uid="uid://kg67wa277yod" path="res://Assets/Environment/Tiles/Blue Tile 1.png" id="2_x3b7a"]
+[ext_resource type="Texture2D" uid="uid://dhd6ugwnb1v4c" path="res://Assets/Environment/Tiles/Blue Tile 2.png" id="3_hrhn7"]
+[ext_resource type="PackedScene" uid="uid://c5dfnm72jskqa" path="res://scenes/props/Ladder.tscn" id="3_s8ju6"]
+[ext_resource type="Texture2D" uid="uid://cx4dl0i75537f" path="res://Assets/Environment/Tiles/Right & Bottom Edge Blue Tile 1.png" id="4_t0hdc"]
+[ext_resource type="Texture2D" uid="uid://ca3h1puy0crai" path="res://Assets/Environment/Tiles/Right Edge Blue Tile.png" id="5_efh6v"]
+[ext_resource type="Texture2D" uid="uid://2l80a23rgdqk" path="res://Assets/Environment/Tiles/Top & Bottom Edge Blue Tile 1.png" id="6_ctuab"]
+[ext_resource type="Texture2D" uid="uid://berw638v0sbwa" path="res://Assets/Environment/Tiles/Top & Bottom Edge Blue Tile 2.png" id="7_ygn1p"]
+[ext_resource type="Texture2D" uid="uid://bj7ckldcplfdu" path="res://Assets/Environment/Tiles/Top & Bottom Edge Blue Tile 3.png" id="8_jrxpd"]
+[ext_resource type="Texture2D" uid="uid://dtq2ctqqskou4" path="res://Assets/Environment/Tiles/Top Blue Edge Tile 1.png" id="9_b33se"]
+[ext_resource type="Texture2D" uid="uid://dvcgviwgy2ety" path="res://Assets/Environment/Tiles/Top Blue Edge Tile 2.png" id="10_hm4eg"]
+[ext_resource type="Texture2D" uid="uid://drf33ogfd1xwn" path="res://Assets/Environment/Tiles/Top Blue Edge Tile 3.png" id="11_hr5c1"]
+[ext_resource type="Texture2D" uid="uid://ditrvsclojmkb" path="res://Assets/Environment/Tiles/Blue Tile 3.png" id="12_ib1o8"]
+[ext_resource type="Texture2D" uid="uid://dbvgwynadbc1i" path="res://Assets/Environment/Tiles/Bottom Edge Blue Tile 1.png" id="13_8utb7"]
+[ext_resource type="Texture2D" uid="uid://qqkgmem1mhvn" path="res://Assets/Environment/Tiles/Bottom Edge Blue Tile 2.png" id="14_hojrf"]
+[ext_resource type="Texture2D" uid="uid://b0y300mk1eond" path="res://Assets/Environment/Tiles/Bottom Edge Blue Tile 3.png" id="15_t6646"]
+[ext_resource type="Texture2D" uid="uid://dhr1eb1phjr5j" path="res://Assets/Environment/Tiles/Left & Bottom & Top Edge Blue Tile 1.png" id="16_v3a1e"]
+[ext_resource type="Texture2D" uid="uid://ceckax7sfecw7" path="res://Assets/Environment/Tiles/Left & Bottom Edge Blue Tile 1.png" id="17_v5153"]
+[ext_resource type="Texture2D" uid="uid://dpgmfm8iidtv7" path="res://Assets/Environment/Tiles/Left Edge Blue Tile.png" id="18_cyivj"]
+[ext_resource type="Texture2D" uid="uid://byma6st72r47m" path="res://Assets/Environment/Tiles/Right & Bottom & Top Edge Blue Tile 1.png" id="19_5habq"]
+[ext_resource type="Texture2D" uid="uid://cycig0l4wxvck" path="res://Assets/Environment/Pillars/Blue Pillar.png" id="23_hrhn7"]
+[ext_resource type="PackedScene" uid="uid://diuf0jvclopsh" path="res://scenes/props/spawner.tscn" id="23_ygn1p"]
+[ext_resource type="Texture2D" uid="uid://c8jtbwyfkv33s" path="res://Assets/Environment/Pillars/Tan Pillar.png" id="24_t0hdc"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="25_efh6v"]
+[ext_resource type="PackedScene" uid="uid://cnuklmi55ufu2" path="res://scenes/items/red_powerup.tscn" id="26_ctuab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8ju6"]
+size = Vector2(384, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k3pw"]
+size = Vector2(8, 432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o5w5"]
+size = Vector2(307, 12)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_plrdm"]
+texture = ExtResource("2_x3b7a")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sklvq"]
+texture = ExtResource("3_hrhn7")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fyasj"]
+texture = ExtResource("4_t0hdc")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_707bt"]
+texture = ExtResource("5_efh6v")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wmdtl"]
+texture = ExtResource("6_ctuab")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1sjb"]
+texture = ExtResource("7_ygn1p")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxjlr"]
+texture = ExtResource("8_jrxpd")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2nbb"]
+texture = ExtResource("9_b33se")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7vg4q"]
+texture = ExtResource("10_hm4eg")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3fqsc"]
+texture = ExtResource("11_hr5c1")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q1ad5"]
+texture = ExtResource("12_ib1o8")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rruoe"]
+texture = ExtResource("13_8utb7")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbymq"]
+texture = ExtResource("14_hojrf")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nn3p2"]
+texture = ExtResource("15_t6646")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e4qvk"]
+texture = ExtResource("16_v3a1e")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eegpd"]
+texture = ExtResource("17_v5153")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tqfb"]
+texture = ExtResource("18_cyivj")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mdinj"]
+texture = ExtResource("19_5habq")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0s81w"]
+sources/0 = SubResource("TileSetAtlasSource_plrdm")
+sources/1 = SubResource("TileSetAtlasSource_sklvq")
+sources/2 = SubResource("TileSetAtlasSource_q1ad5")
+sources/3 = SubResource("TileSetAtlasSource_rruoe")
+sources/4 = SubResource("TileSetAtlasSource_lbymq")
+sources/5 = SubResource("TileSetAtlasSource_nn3p2")
+sources/6 = SubResource("TileSetAtlasSource_e4qvk")
+sources/7 = SubResource("TileSetAtlasSource_eegpd")
+sources/8 = SubResource("TileSetAtlasSource_8tqfb")
+sources/9 = SubResource("TileSetAtlasSource_mdinj")
+sources/10 = SubResource("TileSetAtlasSource_fyasj")
+sources/11 = SubResource("TileSetAtlasSource_707bt")
+sources/12 = SubResource("TileSetAtlasSource_wmdtl")
+sources/13 = SubResource("TileSetAtlasSource_j1sjb")
+sources/14 = SubResource("TileSetAtlasSource_jxjlr")
+sources/15 = SubResource("TileSetAtlasSource_f2nbb")
+sources/16 = SubResource("TileSetAtlasSource_7vg4q")
+sources/17 = SubResource("TileSetAtlasSource_3fqsc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efh6v"]
+size = Vector2(125, 12)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efh6v"]
+texture = ExtResource("17_v5153")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ctuab"]
+texture = ExtResource("4_t0hdc")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygn1p"]
+texture = ExtResource("6_ctuab")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jrxpd"]
+texture = ExtResource("7_ygn1p")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b33se"]
+texture = ExtResource("8_jrxpd")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hm4eg"]
+tile_size = Vector2i(24, 24)
+sources/0 = SubResource("TileSetAtlasSource_efh6v")
+sources/1 = SubResource("TileSetAtlasSource_ctuab")
+sources/2 = SubResource("TileSetAtlasSource_ygn1p")
+sources/3 = SubResource("TileSetAtlasSource_jrxpd")
+sources/4 = SubResource("TileSetAtlasSource_b33se")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grapple_target"]
+size = Vector2(11, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0hdc"]
+size = Vector2(77, 12)
+
+[node name="GrayBoxTall" type="Node2D" unique_id=1614018640]
+script = ExtResource("1_s8ju6")
+
+[node name="Background" type="Node2D" parent="." unique_id=2028112448]
+
+[node name="Columns_Tan" type="Node2D" parent="Background" unique_id=497664887]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Columns_Tan" unique_id=1620095292]
+position = Vector2(79, 115)
+scale = Vector2(1, 0.955)
+texture = ExtResource("24_t0hdc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/Columns_Tan" unique_id=1649902116]
+position = Vector2(255, 114)
+scale = Vector2(1, 0.955)
+texture = ExtResource("24_t0hdc")
+
+[node name="Columns_Blue" type="Node2D" parent="Background" unique_id=1115928565]
+position = Vector2(62, 233)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Columns_Blue" unique_id=418793909]
+position = Vector2(70, 87)
+texture = ExtResource("23_hrhn7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/Columns_Blue" unique_id=1277552854]
+position = Vector2(208, 87)
+texture = ExtResource("23_hrhn7")
+
+[node name="Geometry" type="Node2D" parent="." unique_id=719396875]
+
+[node name="Floor" type="StaticBody2D" parent="Geometry" unique_id=1254028544]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Floor" unique_id=813724136]
+position = Vector2(192, 425)
+shape = SubResource("RectangleShape2D_s8ju6")
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Floor" unique_id=200512064]
+position = Vector2(1, 419)
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 16, 0, 0)
+
+[node name="Ceiling" type="StaticBody2D" parent="Geometry" unique_id=625683560]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Ceiling" unique_id=810501073]
+position = Vector2(192, 8)
+shape = SubResource("RectangleShape2D_s8ju6")
+
+[node name="Left_Wall" type="StaticBody2D" parent="Geometry" unique_id=1052175348]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Left_Wall" unique_id=1223144065]
+position = Vector2(0, 216)
+shape = SubResource("RectangleShape2D_4k3pw")
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Left_Wall" unique_id=609823376]
+polygon = PackedVector2Array(-4, 0, 4, 0, 4, 432, -4, 432)
+
+[node name="Right_Wall" type="StaticBody2D" parent="Geometry" unique_id=1406564889]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Right_Wall" unique_id=660148495]
+position = Vector2(384, 216)
+shape = SubResource("RectangleShape2D_4k3pw")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Right_Wall" unique_id=1218770401]
+position = Vector2(384, 0)
+polygon = PackedVector2Array(-4, 0, 4, 0, 4, 432, -4, 432)
+
+[node name="Center_Divider" type="StaticBody2D" parent="Geometry" unique_id=897483073]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Center_Divider" unique_id=1192698008]
+position = Vector2(159, 214)
+shape = SubResource("RectangleShape2D_5o5w5")
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Center_Divider" unique_id=2097987174]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Geometry/Center_Divider" unique_id=2018358822]
+tile_map_data = PackedByteArray("AAAAAA0AAwAAAAAAAAADAA0AAwAAAAAAAAAGAA0AAwAAAAAAAAAJAA0AAwAAAAAAAAAMAA0AAwAAAAAAAAAPAA0AAwAAAAAAAAASAA0AAwAAAAAAAAABAA0ABAAAAAAAAAAEAA0ABAAAAAAAAAAHAA0ABAAAAAAAAAAKAA0ABAAAAAAAAAANAA0ABAAAAAAAAAAQAA0ABAAAAAAAAAACAA0ABQAAAAAAAAAFAA0ABQAAAAAAAAAIAA0ABQAAAAAAAAALAA0ABQAAAAAAAAAOAA0ABQAAAAAAAAARAA0ABQAAAAAAAAATAA0ACQAAAAAAAAAAABkACgAAAAAAAAAAABYACgAAAAAAAAAAABMACgAAAAAAAAAAABAACgAAAAAAAAAAAA4ACgAAAAAAAAAAAA8ACwAAAAAAAAAAABgACwAAAAAAAAAAABQACwAAAAAAAAAAABIACwAAAAAAAAAAABEACwAAAAAAAAAAABUACwAAAAAAAAAAABcACwAAAAAAAAAXABkACAAAAAAAAAAXABYACAAAAAAAAAAXABMACAAAAAAAAAAXABEACAAAAAAAAAAXAA8ACAAAAAAAAAAXAAwACAAAAAAAAAAXABUABwAAAAAAAAAXABcABwAAAAAAAAAXABgABwAAAAAAAAAXAA0ABwAAAAAAAAAXAA4ABwAAAAAAAAAXABAABwAAAAAAAAAXABIABwAAAAAAAAAXABQABwAAAAAAAAAXAAsABwAAAAAAAAAXAAgABwAAAAAAAAAXAAUABwAAAAAAAAAXAAIABwAAAAAAAAAXAAEABwAAAAAAAAAXAAMABwAAAAAAAAAXAAQABwAAAAAAAAAXAAYABwAAAAAAAAAXAAcABwAAAAAAAAAXAAkACAAAAAAAAAAXAAoACAAAAAAAAAAAABoADgAAAAAAAAABABoADwAAAAAAAAACABoADgAAAAAAAAADABoADwAAAAAAAAAEABoADgAAAAAAAAAFABoADgAAAAAAAAAGABoADwAAAAAAAAAHABoADgAAAAAAAAAIABoADwAAAAAAAAAJABoADgAAAAAAAAAKABoADwAAAAAAAAALABoADwAAAAAAAAAMABoADwAAAAAAAAANABoADgAAAAAAAAAOABoADwAAAAAAAAAPABoAEQAAAAAAAAAQABoAEQAAAAAAAAAXABoADwAAAAAAAAAWABoADwAAAAAAAAARABoAEQAAAAAAAAASABoAEQAAAAAAAAATABoAEQAAAAAAAAAUABoAEQAAAAAAAAAVABoAEQAAAAAAAAAAAAAABAAAAAAAAAACAAAABAAAAAAAAAAFAAAABAAAAAAAAAAHAAAABAAAAAAAAAAKAAAABAAAAAAAAAAMAAAABAAAAAAAAAAPAAAABAAAAAAAAAARAAAABAAAAAAAAAAUAAAABAAAAAAAAAAWAAAABAAAAAAAAAAXAAAABAAAAAAAAAAVAAAAAwAAAAAAAAAQAAAAAwAAAAAAAAANAAAAAwAAAAAAAAAIAAAAAwAAAAAAAAAEAAAAAwAAAAAAAAABAAAAAwAAAAAAAAASAAAAAwAAAAAAAAATAAAABQAAAAAAAAAOAAAABQAAAAAAAAALAAAABQAAAAAAAAAJAAAABQAAAAAAAAAGAAAABQAAAAAAAAADAAAABQAAAAAAAAAAAAwACgAAAAAAAAAAAAkACwAAAAAAAAAAAAcACwAAAAAAAAAAAAQACwAAAAAAAAAAAAEACQAAAAAAAAAAAAIACQAAAAAAAAAAAAgACQAAAAAAAAAAAAUACwAAAAAAAAAAAAMACwAAAAAAAAAAAAYACwAAAAAAAAAAAAoACwAAAAAAAAAAAAsACwAAAAAAAAA=")
+tile_set = SubResource("TileSet_0s81w")
+
+[node name="Platform_1" type="StaticBody2D" parent="Geometry" unique_id=2027301749]
+position = Vector2(92, 345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Platform_1" unique_id=1653449036]
+position = Vector2(47.5, 6)
+shape = SubResource("RectangleShape2D_efh6v")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Geometry/Platform_1" unique_id=536458444]
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAwAAAAAAAAADAAAABAAAAAAAAAA=")
+tile_set = SubResource("TileSet_hm4eg")
+
+[node name="GrappleTarget" type="Area2D" parent="Geometry/Platform_1" unique_id=2120318483 groups=["grapple_target"]]
+position = Vector2(112, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Platform_1/GrappleTarget" unique_id=572029691]
+position = Vector2(-5, 12)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="GrappleTarget2" type="Area2D" parent="Geometry/Platform_1" unique_id=1912361757 groups=["grapple_target"]]
+position = Vector2(-17, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Platform_1/GrappleTarget2" unique_id=677097802]
+position = Vector2(6, 13)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="Upper_Platform_1" type="StaticBody2D" parent="Geometry" unique_id=572833584]
+position = Vector2(148, 138)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_1" unique_id=1551779992]
+position = Vector2(48, 6)
+shape = SubResource("RectangleShape2D_t0hdc")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Geometry/Upper_Platform_1" unique_id=1644691162]
+tile_map_data = PackedByteArray("AAADAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAACAAAAAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_hm4eg")
+
+[node name="GrappleTarget" type="Area2D" parent="Geometry/Upper_Platform_1" unique_id=1392618725 groups=["grapple_target"]]
+position = Vector2(88, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_1/GrappleTarget" unique_id=1511254960]
+position = Vector2(-4, 13)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="GrappleTarget2" type="Area2D" parent="Geometry/Upper_Platform_1" unique_id=498813019 groups=["grapple_target"]]
+position = Vector2(6, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_1/GrappleTarget2" unique_id=1854878912]
+position = Vector2(6, 15)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="Upper_Platform_2" type="StaticBody2D" parent="Geometry" unique_id=1857951756]
+position = Vector2(8, 83)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_2" unique_id=488446753]
+position = Vector2(47.5, 6)
+shape = SubResource("RectangleShape2D_t0hdc")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Geometry/Upper_Platform_2" unique_id=386647744]
+tile_map_data = PackedByteArray("AAADAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAACAAAAAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_hm4eg")
+
+[node name="GrappleTarget" type="Area2D" parent="Geometry/Upper_Platform_2" unique_id=1639819883 groups=["grapple_target"]]
+position = Vector2(88, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_2/GrappleTarget" unique_id=828205744]
+position = Vector2(-5, 15)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="GrappleTarget2" type="Area2D" parent="Geometry/Upper_Platform_2" unique_id=60882239 groups=["grapple_target"]]
+position = Vector2(6, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_2/GrappleTarget2" unique_id=87415649]
+position = Vector2(6, 16)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="Upper_Platform_3" type="StaticBody2D" parent="Geometry" unique_id=139762653]
+position = Vector2(285, 85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_3" unique_id=175306690]
+position = Vector2(47.5, 6)
+shape = SubResource("RectangleShape2D_t0hdc")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Geometry/Upper_Platform_3" unique_id=1353124520]
+tile_map_data = PackedByteArray("AAADAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAACAAAAAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_hm4eg")
+
+[node name="GrappleTarget" type="Area2D" parent="Geometry/Upper_Platform_3" unique_id=216558707 groups=["grapple_target"]]
+position = Vector2(88, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_3/GrappleTarget" unique_id=614913870]
+position = Vector2(-5, 15)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="GrappleTarget2" type="Area2D" parent="Geometry/Upper_Platform_3" unique_id=964284577 groups=["grapple_target"]]
+position = Vector2(6, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_3/GrappleTarget2" unique_id=440830490]
+position = Vector2(6, 16)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="Upper_Platform_4" type="StaticBody2D" parent="Geometry" unique_id=1592840092]
+position = Vector2(146, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_4" unique_id=467493703]
+position = Vector2(47.5, 6)
+shape = SubResource("RectangleShape2D_t0hdc")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Geometry/Upper_Platform_4" unique_id=738548310]
+tile_map_data = PackedByteArray("AAADAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAACAAAAAwAAAAAAAAA=")
+tile_set = SubResource("TileSet_hm4eg")
+
+[node name="GrappleTarget" type="Area2D" parent="Geometry/Upper_Platform_4" unique_id=124076850 groups=["grapple_target"]]
+position = Vector2(89, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_4/GrappleTarget" unique_id=1745281466]
+position = Vector2(-4, 8)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="GrappleTarget2" type="Area2D" parent="Geometry/Upper_Platform_4" unique_id=1617847321 groups=["grapple_target"]]
+position = Vector2(6, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Upper_Platform_4/GrappleTarget2" unique_id=1950503658]
+position = Vector2(5, 10)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="Doors" type="Node2D" parent="." unique_id=1359842570]
+
+[node name="Door_West" type="Marker2D" parent="Doors" unique_id=1195321711]
+position = Vector2(30, 397)
+
+[node name="Door_East" type="Marker2D" parent="Doors" unique_id=1321084142]
+position = Vector2(354, 396)
+
+[node name="WestDoor" parent="Doors" unique_id=1951189196 instance=ExtResource("1_je51i")]
+position = Vector2(39, 392)
+target_spawn_path = NodePath("Chambers/chamber_3/SpawnPoints/Spawn_East")
+target_camera_path = NodePath("Chambers/chamber_3/CameraTarget")
+target_room_name = "chamber_3"
+
+[node name="EastDoor" parent="Doors" unique_id=126589194 instance=ExtResource("1_je51i")]
+position = Vector2(350, 392)
+target_spawn_path = NodePath("Chambers/double_chamber_gray/SpawnPoints/Spawn_West")
+target_camera_path = NodePath("Chambers/double_chamber_gray/CameraTarget")
+target_room_name = "double_chamber_gray"
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1657702543]
+
+[node name="Spawn_West" type="Marker2D" parent="SpawnPoints" unique_id=1796462876]
+position = Vector2(60, 396)
+
+[node name="Spawn_East" type="Marker2D" parent="SpawnPoints" unique_id=759955335]
+position = Vector2(324, 396)
+
+[node name="SafeRespawn" type="Marker2D" parent="SpawnPoints" unique_id=1733229283]
+position = Vector2(192, 396)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1956952151]
+
+[node name="Spawner" parent="Enemies" unique_id=1795744022 instance=ExtResource("23_ygn1p")]
+position = Vector2(109, 321)
+
+[node name="Props" type="Node2D" parent="." unique_id=1299833875]
+
+[node name="Ladder" parent="Props" unique_id=103190926 instance=ExtResource("3_s8ju6")]
+position = Vector2(340, 274)
+
+[node name="GrappleTarget2" type="Area2D" parent="Props/Ladder" unique_id=178313833 groups=["grapple_target"]]
+position = Vector2(-13, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Ladder/GrappleTarget2" unique_id=1536115674]
+position = Vector2(6, 13)
+shape = SubResource("RectangleShape2D_grapple_target")
+
+[node name="LayoutGuide" type="Node2D" parent="." unique_id=295787222]
+
+[node name="LeftTopEdge" type="Marker2D" parent="LayoutGuide" unique_id=147729964]
+
+[node name="RightTopEdge" type="Marker2D" parent="LayoutGuide" unique_id=472919706]
+position = Vector2(384, 0)
+
+[node name="LeftFloorEdge" type="Marker2D" parent="LayoutGuide" unique_id=647626202]
+position = Vector2(0, 432)
+
+[node name="RightFloorEdge" type="Marker2D" parent="LayoutGuide" unique_id=800794366]
+position = Vector2(384, 432)
+
+[node name="CeilingCenterLine" type="Marker2D" parent="LayoutGuide" unique_id=590444996]
+position = Vector2(192, 0)
+
+[node name="FloorCenterLine" type="Marker2D" parent="LayoutGuide" unique_id=249577397]
+position = Vector2(192, 432)
+
+[node name="RoomCenter" type="Marker2D" parent="LayoutGuide" unique_id=351249558]
+position = Vector2(192, 216)
+
+[node name="CameraTarget" type="Marker2D" parent="." unique_id=1144622771]
+position = Vector2(192, 216)
+
+[node name="HUD" parent="." unique_id=1174631236 instance=ExtResource("25_efh6v")]
+
+[node name="power ups" type="Node2D" parent="." unique_id=791473846]
+
+[node name="RedPowerup" parent="power ups" unique_id=55920627 instance=ExtResource("26_ctuab")]
+position = Vector2(86, 400)
+
+[node name="RedPowerup2" parent="power ups" unique_id=952886212 instance=ExtResource("26_ctuab")]
+position = Vector2(113, 399)
+
+[node name="RedPowerup3" parent="power ups" unique_id=22505117 instance=ExtResource("26_ctuab")]
+position = Vector2(142, 398)

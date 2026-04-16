@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://0cm8cm3uni8t"]
+
+[ext_resource type="PackedScene" uid="uid://b1a70wrsehrqc" path="res://scenes/items/champion_key.tscn" id="1_no7ut"]
+[ext_resource type="PackedScene" uid="uid://dnt0lqghknqdy" path="res://scenes/props/champion_door.tscn" id="2_3p1s3"]
+[ext_resource type="PackedScene" path="res://scenes/props/regular_door.tscn" id="3_70ivi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(384, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceiling"]
+size = Vector2(384, 16)
+
+[node name="corridor_template" type="Node2D" unique_id=1130164702]
+
+[node name="Geometry" type="Node2D" parent="." unique_id=940815204]
+
+[node name="Floor" type="StaticBody2D" parent="Geometry" unique_id=2144596706]
+position = Vector2(192, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Floor" unique_id=2040986971]
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Floor" unique_id=514694808]
+position = Vector2(-192, -8)
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 0)
+
+[node name="Ceiling" type="StaticBody2D" parent="Geometry" unique_id=1683922307]
+position = Vector2(192, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Ceiling" unique_id=1782014403]
+shape = SubResource("RectangleShape2D_ceiling")
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Ceiling/CollisionShape2D" unique_id=1963577079]
+position = Vector2(-192, -8)
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 0)
+
+[node name="RegularDoor" parent="." unique_id=1001558675 instance=ExtResource("3_70ivi")]
+position = Vector2(357, -29)
+target_spawn_path = NodePath("Chambers/chamber_1/SpawnPoints/Spawn_West")
+target_camera_path = NodePath("Chambers/chamber_1/CameraTarget")
+target_room_name = "chamber_1"
+
+[node name="ChampionKey_1" parent="." unique_id=1390199985 instance=ExtResource("1_no7ut")]
+position = Vector2(235, -20)
+
+[node name="ChampionKey_2" parent="." unique_id=170122682 instance=ExtResource("1_no7ut")]
+position = Vector2(150, -20)
+key_half_id = "B"
+
+[node name="ChampionDoor" parent="." unique_id=1908394393 instance=ExtResource("2_3p1s3")]
+position = Vector2(36, -34)
+scale = Vector2(0.5, 0.5)
+door_type = 2
+target_scene_path = "res://scenes/level/stage_2/champion_arena.tscn"
+locked_prompt = "Need 2 Keys"
+
+[node name="Spawn_East" type="Marker2D" parent="." unique_id=2101694987]
+position = Vector2(330, -25)
+
+[node name="CameraTarget" type="Marker2D" parent="." unique_id=1961566938]
+position = Vector2(192, -32)
+
+[node name="LayoutGuide" type="Node2D" parent="." unique_id=546393182]
+
+[node name="LeftTopEdge" type="Marker2D" parent="LayoutGuide" unique_id=703932860]
+position = Vector2(0, -64)
+
+[node name="RightTopEdge" type="Marker2D" parent="LayoutGuide" unique_id=1466298347]
+position = Vector2(384, -64)
+
+[node name="LeftFloorEdge" type="Marker2D" parent="LayoutGuide" unique_id=1129484519]
+position = Vector2(0, 16)
+
+[node name="RightFloorEdge" type="Marker2D" parent="LayoutGuide" unique_id=542002474]
+position = Vector2(384, 16)
+
+[node name="CeilingCenterLine" type="Marker2D" parent="LayoutGuide" unique_id=1751952630]
+position = Vector2(192, -64)
+
+[node name="FloorCenterLine" type="Marker2D" parent="LayoutGuide" unique_id=1943495394]
+position = Vector2(192, 16)
+
+[node name="RoomCenter" type="Marker2D" parent="LayoutGuide" unique_id=2006607751]
+position = Vector2(192, -24)

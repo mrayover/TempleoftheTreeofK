@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://d2a4murnyomjt"]
+
+[ext_resource type="Script" uid="uid://ck8vp1gf3f1rc" path="res://scripts/projectiles/projectile.gd" id="1_dprbf"]
+[ext_resource type="Texture2D" uid="uid://bd4jk1xfxuev0" path="res://Assets/Effects/Sunburst_Attack.png" id="2_vihyi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dprbf"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdm4f"]
+atlas = ExtResource("2_vihyi")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13obt"]
+atlas = ExtResource("2_vihyi")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du7tx"]
+atlas = ExtResource("2_vihyi")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjnh8"]
+atlas = ExtResource("2_vihyi")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjfis"]
+atlas = ExtResource("2_vihyi")
+region = Rect2(48, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7ljl"]
+atlas = ExtResource("2_vihyi")
+region = Rect2(60, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vihyi"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdm4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13obt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du7tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjnh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjfis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7ljl")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="Projectile" type="Area2D" unique_id=1552768461 groups=["projectile"]]
+script = ExtResource("1_dprbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1778923813]
+shape = SubResource("CircleShape2D_dprbf")
+
+[node name="Visual" type="AnimatedSprite2D" parent="." unique_id=463525458]
+sprite_frames = SubResource("SpriteFrames_vihyi")
+animation = &"fly"
+autoplay = "fly"

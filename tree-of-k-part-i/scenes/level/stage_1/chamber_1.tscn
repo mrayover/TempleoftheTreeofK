@@ -1,0 +1,117 @@
+[gd_scene format=4 uid="uid://jddmxyngvpo3"]
+
+[ext_resource type="PackedScene" uid="uid://cfkk022kw5bdl" path="res://scenes/templates/chamber_template.tscn" id="1_18cob"]
+[ext_resource type="Texture2D" uid="uid://cl0bt30h50rfg" path="res://Assets/Environment/Tiles/TestTile.png" id="2_a2xgy"]
+[ext_resource type="PackedScene" uid="uid://c307vnewc41u" path="res://scenes/props/regular_door.tscn" id="2_dsdd3"]
+[ext_resource type="PackedScene" uid="uid://c5dfnm72jskqa" path="res://scenes/props/Ladder.tscn" id="3_ge61e"]
+[ext_resource type="PackedScene" uid="uid://diuf0jvclopsh" path="res://scenes/props/spawner.tscn" id="4_dw35f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsdd3"]
+size = Vector2(384, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dw35f"]
+texture = ExtResource("2_a2xgy")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_s6k61"]
+sources/0 = SubResource("TileSetAtlasSource_dw35f")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ge61e"]
+size = Vector2(8, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2xgy"]
+size = Vector2(384, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dw35f"]
+size = Vector2(402, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6k61"]
+size = Vector2(137, 8)
+
+[node name="chamber_1" unique_id=1074320376 instance=ExtResource("1_18cob")]
+
+[node name="Floor" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="0" unique_id=996201034]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Floor" index="0" unique_id=124690423]
+position = Vector2(190, 215)
+shape = SubResource("RectangleShape2D_dsdd3")
+debug_color = Color(0.9529412, 0, 0.5647059, 0.41960785)
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Floor" index="1" unique_id=3034525]
+position = Vector2(13, 258)
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 16, 0, 0)
+
+[node name="VisualTiles" type="TileMapLayer" parent="Geometry/Floor" index="2" unique_id=1541882810]
+tile_map_data = PackedByteArray("AAAAAA0AAAAAAAAAAAABAA0AAAAAAAAAAAACAA0AAAAAAAAAAAADAA0AAAAAAAAAAAAEAA0AAAAAAAAAAAAFAA0AAAAAAAAAAAAGAA0AAAAAAAAAAAAHAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAJAA0AAAAAAAAAAAAKAA0AAAAAAAAAAAALAA0AAAAAAAAAAAAMAA0AAAAAAAAAAAANAA0AAAAAAAAAAAAOAA0AAAAAAAAAAAAPAA0AAAAAAAAAAAAQAA0AAAAAAAAAAAARAA0AAAAAAAAAAAASAA0AAAAAAAAAAAATAA0AAAAAAAAAAAAUAA0AAAAAAAAAAAAVAA0AAAAAAAAAAAAWAA0AAAAAAAAAAAAXAA0AAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAAWAAkAAAAAAAAAAAAXAAkAAAAAAAAAAAAIAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAALAAkAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_s6k61")
+
+[node name="Left_Wall" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="1" unique_id=490096141]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Left_Wall" index="0" unique_id=673478525]
+position = Vector2(0, 108)
+shape = SubResource("RectangleShape2D_ge61e")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Left_Wall" index="1" unique_id=2073098746]
+polygon = PackedVector2Array(-4, 0, 4, 0, 4, 216, -4, 216)
+
+[node name="Right_Wall" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="2" unique_id=1390852628]
+position = Vector2(384, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Right_Wall" index="0" unique_id=707928041]
+position = Vector2(0, 108)
+shape = SubResource("RectangleShape2D_ge61e")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Right_Wall" index="1" unique_id=537418321]
+polygon = PackedVector2Array(-4, 0, 4, 0, 4, 216, -4, 216)
+
+[node name="Ceiling" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="3" unique_id=1718337808]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Ceiling" index="0" unique_id=343367446]
+position = Vector2(192, 8)
+shape = SubResource("RectangleShape2D_a2xgy")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Ceiling" index="1" unique_id=784014567]
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 0)
+
+[node name="Platform_1" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="4" unique_id=547129484]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Platform_1" index="0" unique_id=2053129424]
+position = Vector2(278.5, 147.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_dw35f")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Platform_1" index="1" unique_id=464839223]
+position = Vector2(170, 236)
+scale = Vector2(0.9947917, 1)
+polygon = PackedVector2Array(192, 0, 192, 10, 0, 10, 0, 5.0950975, 0, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Geometry" parent_id_path=PackedInt32Array(1380249782) index="5" unique_id=178398827]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/StaticBody2D" index="0" unique_id=115189785]
+position = Vector2(73, 116)
+shape = SubResource("RectangleShape2D_s6k61")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/StaticBody2D" index="1" unique_id=2141440883]
+position = Vector2(29, 243)
+polygon = PackedVector2Array(134, 0, 134, 8, 0, 8, 0, 0)
+
+[node name="RegularDoor" parent="Doors" parent_id_path=PackedInt32Array(500147425) index="2" unique_id=1265473044 instance=ExtResource("2_dsdd3")]
+position = Vector2(351, 186)
+target_spawn_path = NodePath("Chambers/chamber_2/SpawnPoints/Spawn_West")
+target_camera_path = NodePath("Chambers/chamber_2/CameraTarget")
+target_room_name = "chamber_2"
+
+[node name="Spawn_East" parent="SpawnPoints" parent_id_path=PackedInt32Array(90059791) index="1" unique_id=721011482]
+position = Vector2(314, 180)
+
+[node name="Spawner" parent="Enemies" parent_id_path=PackedInt32Array(394795449) index="0" unique_id=1795744022 instance=ExtResource("4_dw35f")]
+position = Vector2(358, 132)
+patrol_left = -150.0
+patrol_right = 0.0
+
+[node name="Ladder" parent="Props" parent_id_path=PackedInt32Array(1362560944) index="0" unique_id=103190926 instance=ExtResource("3_ge61e")]
+position = Vector2(335, 74)
+scale = Vector2(0.1, 0.5)
+
+[node name="CameraTarget" type="Marker2D" parent="." index="6" unique_id=1260946027]
+position = Vector2(192, 108)

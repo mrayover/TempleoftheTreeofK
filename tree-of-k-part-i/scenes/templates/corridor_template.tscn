@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cnstc6rnmcxfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(384, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceiling"]
+size = Vector2(384, 16)
+
+[node name="corridor_template" type="Node2D" unique_id=1130164702]
+
+[node name="Geometry" type="Node2D" parent="." unique_id=940815204]
+
+[node name="Floor" type="StaticBody2D" parent="Geometry" unique_id=2144596706]
+position = Vector2(192, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Floor" unique_id=2040986971]
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Floor" unique_id=514694808]
+position = Vector2(-192, -8)
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 0)
+
+[node name="Ceiling" type="StaticBody2D" parent="Geometry" unique_id=1683922307]
+position = Vector2(192, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Ceiling" unique_id=1782014403]
+shape = SubResource("RectangleShape2D_ceiling")
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Ceiling/CollisionShape2D" unique_id=1963577079]
+position = Vector2(-192, -8)
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 0)

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bj8vouvlh5dof"]
+
+[ext_resource type="Script" uid="uid://by4pky8ch28qr" path="res://scripts/actors/enemies/flying_bird.gd" id="1_0gyqy"]
+[ext_resource type="Texture2D" uid="uid://dvtrm3lg62ehl" path="res://Assets/Enemies/Bat.png" id="2_p7j8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lthy0"]
+size = Vector2(96, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u463n"]
+size = Vector2(96, 20)
+
+[node name="FlyingBird" type="CharacterBody2D" unique_id=2032590448]
+collision_layer = 2
+script = ExtResource("1_0gyqy")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=1891120908]
+texture = ExtResource("2_p7j8i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105235726]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_lthy0")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=67351052]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=768328140]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_u463n")

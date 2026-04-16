@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://bhdqjak1mhk2p"]
+
+[ext_resource type="Script" uid="uid://bekd1hui1vrds" path="res://scripts/actors/player/player.gd" id="1_p0vlq"]
+[ext_resource type="Texture2D" uid="uid://c0tllmbyj6yx2" path="res://Assets/Archetypes/Grapple/Rope.png" id="2_7otbr"]
+[ext_resource type="Texture2D" uid="uid://bxpvkhikndiu4" path="res://Assets/Archetypes/SunburstFF.png" id="2_v6fml"]
+[ext_resource type="Texture2D" uid="uid://yrqc7bv2ee4m" path="res://Assets/Effects/PlayerShield.png" id="3_3li8b"]
+[ext_resource type="Texture2D" uid="uid://duy5m4a5q33mj" path="res://Assets/Archetypes/Grapple/Grapple.png" id="3_nnut8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]
+size = Vector2(22, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
+size = Vector2(32, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsx4b"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imb2f"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7otbr"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnut8"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulkbv"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4dnb"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(180, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dsx4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsx4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imb2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7otbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnut8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulkbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4dnb")
+}],
+"loop": true,
+"name": &"flame",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdl7e"]
+radius = 51.0392
+
+[node name="Player" type="CharacterBody2D" unique_id=946149507 groups=["player"]]
+z_index = 2
+collision_mask = 3
+script = ExtResource("1_p0vlq")
+speed = 130.0
+jump_velocity = -250.0
+climb_speed = 90.0
+acceleration = 2000.0
+deceleration = 2800.0
+jump_cut_multiplier = 0.5
+fall_gravity_multiplier = 2.0
+coyote_time = 0.2
+max_fall_speed = 400.0
+grapple_windup_time = 0.1
+grapple_range = 50.0
+grapple_pull_speed = 350.0
+grapple_hop_x = 60.0
+grapple_hop_y = -320.0
+grapple_hop_time = 0.1
+grapple_rope_texture = ExtResource("2_7otbr")
+grapple_head_texture = ExtResource("3_nnut8")
+grapple_attack_range = 40.0
+grapple_attack_start_offset_x = 10.0
+grapple_attack_offset_y = 22.0
+grapple_attack_retract_speed = 200.0
+grapple_attack_fallback_knockback_x = 1.0
+grapple_attack_rope_texture = ExtResource("2_7otbr")
+grapple_attack_head_texture = ExtResource("3_nnut8")
+shot_fire_cooldown = 0.5
+shot_recharge_delay = 3.0
+shot_recharge_interval = 0.7
+charge_two_hit_time = 1.5
+charge_three_hit_time = 2.5
+dash_speed = 550.0
+dash_duration = 0.38
+dash_cooldown = 1.5
+shield_break_invulnerability_time = 1.0
+crouch_collision_height = 18.0
+crouch_sprite_offset_y = 18.0
+crouch_speed_scale = 0.7
+grapple_attack_drop_window = 1.0
+grapple_attack_combo_window_1_duration = 1.0
+grapple_attack_combo_window_2_duration = 1.0
+grapple_attack_combo_2_active_duration = 0.4
+grapple_attack_combo_3_active_duration = 0.4
+grapple_attack_heavy_release_active_duration = 0.1
+grapple_attack_combo_2_arc_height = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=168585771]
+position = Vector2(-1, 23.75)
+shape = SubResource("RectangleShape2D_v6fml")
+
+[node name="LadderDetector" type="Area2D" parent="." unique_id=1529112810]
+z_index = 1
+position = Vector2(-2, 22)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderDetector" unique_id=2012127183]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_p0vlq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1526120633]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_dsx4b")
+animation = &"flame"
+
+[node name="ShieldArea" type="Area2D" parent="." unique_id=1037087579]
+
+[node name="Sprite2D" type="Sprite2D" parent="ShieldArea" unique_id=1937374232]
+position = Vector2(-2, 21)
+scale = Vector2(0.342, 0.35)
+texture = ExtResource("3_3li8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldArea" unique_id=1087257477]
+position = Vector2(-1, 18)
+scale = Vector2(0.4, 0.4)
+shape = SubResource("CircleShape2D_mdl7e")
+
+[node name="ChargePips" type="Node2D" parent="." unique_id=496929084]
+position = Vector2(0, 27)
+scale = Vector2(0.5, 0.5)
+
+[node name="Pip1" type="ColorRect" parent="ChargePips" unique_id=1121475430]
+offset_left = -26.0
+offset_top = -64.0
+offset_right = -16.0
+offset_bottom = -53.0
+color = Color(0, 0.46346265, 0.26353052, 1)
+
+[node name="Pip2" type="ColorRect" parent="ChargePips" unique_id=1418122008]
+offset_left = -5.0
+offset_top = -64.0
+offset_right = 5.0
+offset_bottom = -53.0
+color = Color(0.9415021, 0.5860324, 0, 1)
+
+[node name="Pip3" type="ColorRect" parent="ChargePips" unique_id=1343480098]
+offset_left = 15.0
+offset_top = -64.0
+offset_right = 25.0
+offset_bottom = -53.0
+color = Color(0.9411765, 0, 0, 1)
+
+[connection signal="area_entered" from="LadderDetector" to="." method="_on_ladder_detector_area_entered"]
+[connection signal="area_exited" from="LadderDetector" to="." method="_on_ladder_detector_area_exited"]

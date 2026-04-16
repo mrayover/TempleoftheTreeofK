@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://f01rspii3skd"]
+
+[ext_resource type="PackedScene" uid="uid://jddmxyngvpo3" path="res://scenes/level/stage_1/chamber_1.tscn" id="1_jewxr"]
+[ext_resource type="PackedScene" uid="uid://3u2l5bowykan" path="res://scenes/level/stage_1/chamber_2.tscn" id="2_w0gku"]
+[ext_resource type="PackedScene" uid="uid://dfcgabyvkm4do" path="res://scenes/level/stage_1/chamber_3.tscn" id="3_ch3"]
+[ext_resource type="PackedScene" uid="uid://coqd7msqim26q" path="res://scenes/level/stage_1/chamber_4.tscn" id="4_ch4"]
+[ext_resource type="PackedScene" uid="uid://bhdqjak1mhk2p" path="res://scenes/actors/player/Player.tscn" id="5_player"]
+[ext_resource type="PackedScene" uid="uid://cud0yu4fhjbhi" path="res://scenes/level/stage_1/corridor_1.tscn" id="6_hrmij"]
+[ext_resource type="Script" uid="uid://benh2m817ev3w" path="res://scripts/level/main_stage_1.gd" id="6_stage"]
+
+[node name="MainStage1" type="Node2D" unique_id=931265271]
+script = ExtResource("6_stage")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=282177963]
+position = Vector2(192, 108)
+
+[node name="Chambers" type="Node2D" parent="." unique_id=1370319217]
+
+[node name="chamber_1" parent="Chambers" unique_id=1074320376 instance=ExtResource("1_jewxr")]
+
+[node name="chamber_2" parent="Chambers" unique_id=24168579 instance=ExtResource("2_w0gku")]
+position = Vector2(384, 0)
+
+[node name="chamber_3" parent="Chambers" unique_id=998877661 instance=ExtResource("3_ch3")]
+position = Vector2(768, 0)
+
+[node name="chamber_4" parent="Chambers" unique_id=887766552 instance=ExtResource("4_ch4")]
+position = Vector2(1540, -8)
+
+[node name="Corridors" type="Node2D" parent="." unique_id=1466929617]
+
+[node name="corridor_1" parent="Corridors" unique_id=2017701048 instance=ExtResource("6_hrmij")]
+position = Vector2(1152, 360)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1851471757]
+
+[node name="Player" parent="." unique_id=946149507 instance=ExtResource("5_player")]
+position = Vector2(79, 154)
+speed = 150.0
+jump_velocity = -340.0
+knockback_x = 200.0
+knockback_y = -250.0
+reload_time = 1.0
+charge_two_hit_time = 1.4
+charge_three_hit_time = 2.4
+can_hover = true
+
+[node name="PlayerStart" type="Marker2D" parent="." unique_id=671895126]
+position = Vector2(60, 180)

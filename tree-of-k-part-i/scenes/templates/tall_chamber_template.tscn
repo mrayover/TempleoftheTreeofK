@@ -1,0 +1,47 @@
+[gd_scene format=3]
+
+[node name="TallChamberTemplate" type="Node2D" unique_id=1074320376]
+
+[node name="Geometry" type="Node2D" parent="." unique_id=1380249782]
+
+[node name="Doors" type="Node2D" parent="." unique_id=500147425]
+
+[node name="Door_West" type="Marker2D" parent="Doors" unique_id=118754306]
+position = Vector2(30, 396)
+
+[node name="Door_East" type="Marker2D" parent="Doors" unique_id=1544697268]
+position = Vector2(354, 396)
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=90059791]
+
+[node name="Spawn_West" type="Marker2D" parent="SpawnPoints" unique_id=1855045319]
+
+[node name="Spawn_East" type="Marker2D" parent="SpawnPoints" unique_id=721011482]
+
+[node name="SafeRespawn" type="Marker2D" parent="SpawnPoints" unique_id=861081565]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=394795449]
+
+[node name="Props" type="Node2D" parent="." unique_id=1362560944]
+
+[node name="LayoutGuide" type="Node2D" parent="." unique_id=1054749837]
+
+[node name="LeftTopEdge" type="Marker2D" parent="LayoutGuide" unique_id=1603436482]
+
+[node name="RightTopEdge" type="Marker2D" parent="LayoutGuide" unique_id=25193701]
+position = Vector2(384, 0)
+
+[node name="LeftFloorEdge" type="Marker2D" parent="LayoutGuide" unique_id=1109536256]
+position = Vector2(0, 432)
+
+[node name="RightFloorEdge" type="Marker2D" parent="LayoutGuide" unique_id=1036033840]
+position = Vector2(384, 432)
+
+[node name="CeilingCenterLine" type="Marker2D" parent="LayoutGuide" unique_id=505647915]
+position = Vector2(192, 0)
+
+[node name="FloorCenterLine" type="Marker2D" parent="LayoutGuide" unique_id=898239980]
+position = Vector2(192, 432)
+
+[node name="RoomCenter" type="Marker2D" parent="LayoutGuide" unique_id=617876119]
+position = Vector2(192, 216)

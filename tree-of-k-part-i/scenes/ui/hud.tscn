@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://dx1offxto6gg7"]
+
+[ext_resource type="Script" uid="uid://cnf8jggvgup18" path="res://scripts/ui/hud.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bkhvl8mvcpsiv" path="res://Assets/Archetypes/UI/1_Torch_Health_Left.png" id="2_health_bg"]
+[ext_resource type="Texture2D" uid="uid://b8cg0uevp8yqi" path="res://Assets/Archetypes/UI/Health_Pips_Regular.png" id="3_health_regular"]
+[ext_resource type="Texture2D" uid="uid://c8qthxrm7dql0" path="res://Assets/Archetypes/UI/Health_Pips_Extra.png" id="4_health_extra"]
+[ext_resource type="Texture2D" uid="uid://bbhy2twd7dcwk" path="res://Assets/Archetypes/UI/2_Torch_Super_Center.png" id="5_special_bg"]
+[ext_resource type="Texture2D" uid="uid://r08087i11lf6" path="res://Assets/Archetypes/UI/Special_pip.png" id="6_special_pip"]
+[ext_resource type="Texture2D" uid="uid://ct6jobddttj00" path="res://Assets/Archetypes/UI/3_Torch_Shot_Right.png" id="7_shot_bg"]
+[ext_resource type="Texture2D" uid="uid://vnfeic6a44qx" path="res://Assets/Archetypes/UI/Shot_Pips_1_2.png" id="8_shot_pip_12"]
+[ext_resource type="Texture2D" uid="uid://cfp13aidr617x" path="res://Assets/Archetypes/UI/Shot_Pips_3.png" id="9_shot_pip_3"]
+[ext_resource type="Texture2D" uid="uid://drt66gxn4k2yu" path="res://Assets/Archetypes/UI/Shot_Pips_4.png" id="10_shot_pip_4"]
+[ext_resource type="Texture2D" uid="uid://dpx8d623hr270" path="res://Assets/Archetypes/UI/Shot_Pips_5.png" id="11_shot_pip_5"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1283197941]
+script = ExtResource("1_script")
+
+[node name="TopHealth" type="Node2D" parent="." unique_id=555161774]
+
+[node name="Background" type="Sprite2D" parent="TopHealth" unique_id=1630259189]
+texture = ExtResource("2_health_bg")
+centered = false
+
+[node name="HealthRegular1" type="Sprite2D" parent="TopHealth" unique_id=1069082091]
+position = Vector2(35, 1)
+texture = ExtResource("3_health_regular")
+centered = false
+
+[node name="HealthRegular2" type="Sprite2D" parent="TopHealth" unique_id=247988668]
+position = Vector2(47, 1)
+texture = ExtResource("3_health_regular")
+centered = false
+
+[node name="HealthRegular3" type="Sprite2D" parent="TopHealth" unique_id=1100117803]
+position = Vector2(59, 1)
+texture = ExtResource("3_health_regular")
+centered = false
+
+[node name="HealthRegular4" type="Sprite2D" parent="TopHealth" unique_id=1547361088]
+position = Vector2(70, 1)
+texture = ExtResource("3_health_regular")
+centered = false
+
+[node name="HealthRegular5" type="Sprite2D" parent="TopHealth" unique_id=575008657]
+position = Vector2(81, 1)
+texture = ExtResource("3_health_regular")
+centered = false
+
+[node name="HealthExtra1" type="Sprite2D" parent="TopHealth" unique_id=1668828733]
+position = Vector2(96, 1)
+texture = ExtResource("4_health_extra")
+centered = false
+
+[node name="HealthExtra2" type="Sprite2D" parent="TopHealth" unique_id=1387755540]
+position = Vector2(107, 1)
+texture = ExtResource("4_health_extra")
+centered = false
+
+[node name="HealthExtra3" type="Sprite2D" parent="TopHealth" unique_id=680160208]
+position = Vector2(118, 1)
+texture = ExtResource("4_health_extra")
+centered = false
+
+[node name="SpecialBar" type="Node2D" parent="." unique_id=510115220]
+position = Vector2(144, 0)
+
+[node name="Background" type="Sprite2D" parent="SpecialBar" unique_id=1645338973]
+texture = ExtResource("5_special_bg")
+centered = false
+
+[node name="SpecialPip1" type="Sprite2D" parent="SpecialBar" unique_id=1836269979]
+position = Vector2(56, 3)
+texture = ExtResource("6_special_pip")
+centered = false
+
+[node name="SpecialPip2" type="Sprite2D" parent="SpecialBar" unique_id=1078408945]
+position = Vector2(68, 3)
+texture = ExtResource("6_special_pip")
+centered = false
+
+[node name="SpecialPip3" type="Sprite2D" parent="SpecialBar" unique_id=1784366199]
+position = Vector2(80, 3)
+texture = ExtResource("6_special_pip")
+centered = false
+
+[node name="SpecialPip4" type="Sprite2D" parent="SpecialBar" unique_id=2075663834]
+position = Vector2(92, 3)
+texture = ExtResource("6_special_pip")
+centered = false
+
+[node name="SpecialPip5" type="Sprite2D" parent="SpecialBar" unique_id=1323664301]
+position = Vector2(104, 3)
+texture = ExtResource("6_special_pip")
+centered = false
+
+[node name="ShotBar" type="Node2D" parent="." unique_id=542159899]
+position = Vector2(276, 0)
+
+[node name="Background" type="Sprite2D" parent="ShotBar" unique_id=8852533]
+texture = ExtResource("7_shot_bg")
+centered = false
+
+[node name="ShotPip1" type="Sprite2D" parent="ShotBar" unique_id=1076368714]
+position = Vector2(83, 4)
+texture = ExtResource("8_shot_pip_12")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 10, 3)
+
+[node name="ShotPip2" type="Sprite2D" parent="ShotBar" unique_id=583223311]
+position = Vector2(71, 4)
+texture = ExtResource("8_shot_pip_12")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 10, 3)
+
+[node name="ShotPip3" type="Sprite2D" parent="ShotBar" unique_id=810681541]
+position = Vector2(59, 4)
+texture = ExtResource("9_shot_pip_3")
+centered = false
+
+[node name="ShotPip4" type="Sprite2D" parent="ShotBar" unique_id=1248951969]
+position = Vector2(47, 4)
+texture = ExtResource("10_shot_pip_4")
+centered = false
+
+[node name="ShotPip5" type="Sprite2D" parent="ShotBar" unique_id=301052354]
+position = Vector2(35, 4)
+texture = ExtResource("11_shot_pip_5")
+centered = false

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://gkp03xufgoep"]
+
+[ext_resource type="Script" uid="uid://d24sthvvkcwf5" path="res://scripts/level/champion_arena.gd" id="1_8bi2v"]
+[ext_resource type="PackedScene" uid="uid://bhdqjak1mhk2p" path="res://scenes/actors/player/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://2cpfqa1jgy7a" path="res://scenes/actors/enemies/champion.tscn" id="3_champion"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bi2v"]
+size = Vector2(384, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8f03"]
+size = Vector2(8, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocnjt"]
+size = Vector2(384, 16)
+
+[node name="ChampionArena" type="Node2D" unique_id=121478274]
+script = ExtResource("1_8bi2v")
+
+[node name="Label" type="Label" parent="." unique_id=1222357292]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 132.0
+offset_top = 93.0
+offset_right = 268.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press E to Return"
+
+[node name="Geometry" type="Node2D" parent="." unique_id=1619367246]
+
+[node name="Floor" type="StaticBody2D" parent="Geometry" unique_id=1919490582]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Floor" unique_id=2120859222]
+position = Vector2(192, 208)
+shape = SubResource("RectangleShape2D_8bi2v")
+debug_color = Color(0.9529412, 0, 0.5647059, 0.41960785)
+
+[node name="Visual" type="Polygon2D" parent="Geometry/Floor" unique_id=371293141]
+position = Vector2(0, 200)
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 16, 0, 0)
+
+[node name="Left_Wall" type="StaticBody2D" parent="Geometry" unique_id=151706751]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Left_Wall" unique_id=958987801]
+position = Vector2(0, 108)
+shape = SubResource("RectangleShape2D_s8f03")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Left_Wall" unique_id=1364301197]
+polygon = PackedVector2Array(-4, 0, 4, 0, 4, 216, -4, 216)
+
+[node name="Right_Wall" type="StaticBody2D" parent="Geometry" unique_id=2147316894]
+position = Vector2(384, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Right_Wall" unique_id=664492061]
+position = Vector2(0, 108)
+shape = SubResource("RectangleShape2D_s8f03")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Right_Wall" unique_id=60340992]
+polygon = PackedVector2Array(-4, 0, 4, 0, 4, 216, -4, 216)
+
+[node name="Ceiling" type="StaticBody2D" parent="Geometry" unique_id=1496908634]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Geometry/Ceiling" unique_id=1889532046]
+position = Vector2(192, 8)
+shape = SubResource("RectangleShape2D_ocnjt")
+
+[node name="Polygon2D" type="Polygon2D" parent="Geometry/Ceiling" unique_id=261977430]
+polygon = PackedVector2Array(384, 0, 384, 16, 0, 16, 0, 0)
+
+[node name="CameraTarget" type="Marker2D" parent="." unique_id=1313531061]
+
+[node name="PlayerStart" type="Marker2D" parent="." unique_id=1470000001]
+position = Vector2(60, 160)
+
+[node name="Champion" parent="." unique_id=1649210200 instance=ExtResource("3_champion")]
+position = Vector2(288, 160)
+
+[node name="Player" parent="." unique_id=946149507 instance=ExtResource("2_player")]
+position = Vector2(60, 160)
+can_hover = true

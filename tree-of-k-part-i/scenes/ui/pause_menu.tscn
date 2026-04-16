@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://5q58o7wsu4t"]
+
+[ext_resource type="Script" uid="uid://x5614wer8osx" path="res://scripts/ui/pause_menu.gd" id="1_6tw0m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0lmf7"]
+font_size = 63
+
+[sub_resource type="LabelSettings" id="LabelSettings_f6eus"]
+font_size = 33
+
+[sub_resource type="LabelSettings" id="LabelSettings_8uki6"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_0bnpd"]
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_4inpj"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_8fwbo"]
+font_size = 22
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=175849684]
+script = ExtResource("1_6tw0m")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=1614502729]
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 963.0
+offset_bottom = 543.0
+color = Color(0, 0, 0, 0.45100003)
+
+[node name="PauseLabel" type="Label" parent="." unique_id=344568058]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.0
+offset_right = 79.0
+offset_bottom = 77.0
+grow_horizontal = 2
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_0lmf7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StageLabel" type="Label" parent="." unique_id=707953350]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 95.0
+offset_right = 70.5
+offset_bottom = 151.0
+grow_horizontal = 2
+text = "Stage 1"
+label_settings = SubResource("LabelSettings_f6eus")
+
+[node name="ResumeButton" type="Button" parent="." unique_id=362836253]
+anchors_preset = -1
+offset_left = 4.0
+offset_top = 99.0
+offset_right = 232.0
+offset_bottom = 146.0
+text = "Resume"
+
+[node name="RestartRunButton" type="Button" parent="." unique_id=1062043559]
+anchors_preset = -1
+offset_left = -1.0
+offset_top = 153.0
+offset_right = 225.0
+offset_bottom = 199.0
+text = "Restart Run"
+
+[node name="QuitToMainMenuButton" type="Button" parent="." unique_id=2032043559]
+anchors_preset = -1
+offset_left = -1.0
+offset_top = 207.0
+offset_right = 225.0
+offset_bottom = 253.0
+text = "Quit to Main Menu"
+
+[node name="ArchetypeTitle" type="Label" parent="." unique_id=211052331]
+anchors_preset = -1
+offset_left = 30.0
+offset_top = 297.0
+offset_right = 209.0
+offset_bottom = 337.0
+text = "Current Archetype"
+label_settings = SubResource("LabelSettings_8uki6")
+
+[node name="ArchetypeName" type="Label" parent="." unique_id=977850212]
+anchors_preset = -1
+offset_left = 71.0
+offset_top = 439.0
+offset_right = 161.0
+offset_bottom = 465.0
+text = "Sunburst"
+label_settings = SubResource("LabelSettings_0bnpd")
+
+[node name="ChampionKeyLabel" type="Label" parent="." unique_id=1708109510]
+anchors_preset = -1
+offset_left = 695.0
+offset_top = 97.0
+offset_right = 885.0
+offset_bottom = 142.0
+text = "Champion Key"
+label_settings = SubResource("LabelSettings_4inpj")
+
+[node name="ChampionKeyBox" type="ColorRect" parent="." unique_id=927707018]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -128.0
+offset_right = -122.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="GuardianFragmentsLabel" type="Label" parent="." unique_id=1373173744]
+offset_left = 704.0
+offset_top = 291.0
+offset_right = 859.0
+offset_bottom = 349.0
+text = "Guardian Key 
+Fragments"
+label_settings = SubResource("LabelSettings_8fwbo")
+horizontal_alignment = 1
+
+[node name="GuardianFragmentsPlaceholder" type="ColorRect" parent="." unique_id=1238487199]
+offset_left = 709.0
+offset_top = 363.0
+offset_right = 843.0
+offset_bottom = 467.0
+
+[node name="MapContainer" type="Control" parent="." unique_id=1832282631]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 305.0
+offset_top = 172.0
+offset_right = 669.0
+offset_bottom = 506.0
+
+[node name="RoomCenterBox" type="ColorRect" parent="MapContainer" unique_id=1504946845]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 270.0
+offset_right = 146.0
+offset_bottom = 310.0
+
+[node name="RoomUpBox" type="ColorRect" parent="MapContainer" unique_id=842440015]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 212.0
+offset_right = 181.0
+offset_bottom = 255.0
+
+[node name="RoomRightBox" type="ColorRect" parent="MapContainer" unique_id=1141296480]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 270.0
+offset_right = 239.0
+offset_bottom = 312.0
+
+[node name="RoomChampionBox" type="ColorRect" parent="MapContainer" unique_id=1982086163]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 214.0
+offset_right = 267.0
+offset_bottom = 259.0

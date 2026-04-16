@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c307vnewc41u"]
+
+[ext_resource type="Script" uid="uid://yjxajv400nqg" path="res://scripts/props/regular_door.gd" id="1_regular_door"]
+[ext_resource type="Texture2D" uid="uid://bbqjreittg4w" path="res://Assets/Environment/Doors/Tan Door.png" id="2_wckmb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_regular"]
+size = Vector2(25, 43)
+
+[node name="RegularDoor" type="Node2D" unique_id=1951189196]
+script = ExtResource("1_regular_door")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1407186327]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_wckmb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1787034560]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=825991330]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_regular")

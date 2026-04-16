@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c5dfnm72jskqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6dfw"]
+size = Vector2(32, 166)
+
+[node name="Ladder" type="Area2D" unique_id=103190926 groups=["ladder"]]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=974735863 groups=["ladder"]]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_v6dfw")
+
+[node name="Visual" type="Polygon2D" parent="." unique_id=1479249459]
+position = Vector2(0, -0.999995)
+scale = Vector2(1, 1.0375)
+color = Color(0.29119855, 0.4909985, 0.6914908, 1)
+polygon = PackedVector2Array(-16, -80, 16, -80, 16, 80, -16, 80)

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cmad6ay0al4kw"]
+
+[ext_resource type="Script" uid="uid://dwjjpv8spm2of" path="res://scripts/level/Gray Box/gray_box_test_main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://bhdqjak1mhk2p" path="res://scenes/actors/player/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://dc8o2wyckmgs4" path="res://scenes/level/Gray Box/gray_box_tall.tscn" id="3_tall"]
+[ext_resource type="PackedScene" uid="uid://bt50qllyfvhj6" path="res://scenes/level/Gray Box/double_chamber_gray.tscn" id="4_double"]
+
+[node name="GrayBoxTestMain" type="Node2D" unique_id=2057531316]
+script = ExtResource("1_main")
+
+[node name="PlayerStart" type="Marker2D" parent="." unique_id=44086034]
+position = Vector2(60, 396)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1768788831]
+position = Vector2(192, 216)
+
+[node name="Player" parent="." unique_id=529671677 instance=ExtResource("2_player")]
+position = Vector2(60, 396)
+
+[node name="Chambers" type="Node2D" parent="." unique_id=369782038]
+
+[node name="gray_box_tall" parent="Chambers" unique_id=1972654693 instance=ExtResource("3_tall")]
+
+[node name="double_chamber_gray" parent="Chambers" unique_id=848594369 instance=ExtResource("4_double")]
+position = Vector2(384, 216)

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dk0wxb4os5sny"]
+
+[ext_resource type="Script" uid="uid://bnwaljg2n77wx" path="res://scripts/actors/enemies/chicken.gd" id="1_1yv3s"]
+[ext_resource type="Texture2D" uid="uid://cbnc2ce4skhg7" path="res://Assets/Enemies/Scorpion.png" id="2_0d3je"]
+[ext_resource type="Texture2D" uid="uid://b14dh5kyrn7bu" path="res://Assets/Enemies/ChickenPeck.png" id="3_nutj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rc7ma"]
+size = Vector2(13, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0du8g"]
+size = Vector2(11.5, 8.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yv3s"]
+size = Vector2(12, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nutj5"]
+size = Vector2(11.5, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bti8l"]
+size = Vector2(14.875, 4)
+
+[node name="Chicken" type="CharacterBody2D" unique_id=988772063]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_1yv3s")
+
+[node name="Visual" type="Sprite2D" parent="." unique_id=1903342977]
+position = Vector2(1.5, 18)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_0d3je")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=401586176 groups=["enemy"]]
+position = Vector2(3, 15.5)
+shape = SubResource("RectangleShape2D_rc7ma")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1680580602]
+position = Vector2(0, 2.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2056266486]
+position = Vector2(3.5, 14)
+shape = SubResource("RectangleShape2D_0du8g")
+
+[node name="EdgeCheck" type="RayCast2D" parent="." unique_id=1700596809]
+position = Vector2(-9, 0.5)
+target_position = Vector2(0, 20)
+
+[node name="StompBox" type="Area2D" parent="." unique_id=1242157560]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompBox" unique_id=2126764629 groups=["enemy"]]
+position = Vector2(2.5, 12.5)
+shape = SubResource("RectangleShape2D_1yv3s")
+
+[node name="DamageBox" type="Area2D" parent="." unique_id=989747053]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageBox" unique_id=552652868]
+position = Vector2(1.5, 17.5)
+shape = SubResource("RectangleShape2D_nutj5")
+
+[node name="PeckBox" type="Area2D" parent="." unique_id=1023678619]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PeckBox" unique_id=1102962602]
+position = Vector2(-2.5, 16)
+shape = SubResource("RectangleShape2D_bti8l")
+
+[node name="PeckEffect" type="Sprite2D" parent="." unique_id=1638092148]
+visible = false
+position = Vector2(-25, -4)
+rotation = 3.1415927
+texture = ExtResource("3_nutj5")
+centered = false
+hframes = 5
+
+[connection signal="body_entered" from="StompBox" to="." method="_on_stomp_box_body_entered"]
+[connection signal="body_entered" from="DamageBox" to="." method="_on_damage_box_body_entered"]
+[connection signal="body_entered" from="PeckBox" to="." method="_on_peck_box_body_entered"]
