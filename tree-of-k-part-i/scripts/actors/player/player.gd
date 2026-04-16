@@ -97,11 +97,10 @@ extends CharacterBody2D
 const PROJECTILE_SCENE: PackedScene = preload("res://scenes/projectiles/Projectile.tscn")
 const PLAYER_CHARGE_HELPER = preload("res://scripts/actors/player/player_charge_helper.gd")
 const PLAYER_VISUAL_HELPER = preload("res://scripts/actors/player/player_visual_helper.gd")
-const PLAYER_ARCHETYPE_VISUAL_HELPER = preload("res://scripts/actors/player/player_archetype_visual_helper.gd")
-const TORCH_TEXTURE: Texture2D = preload("res://Assets/Archetypes/TorchFinalSprite.png")
-const SNAKE_TEXTURE: Texture2D = preload("res://Assets/Archetypes/SnakeFinalsprite.png")
-const CROW_TEXTURE: Texture2D = preload("res://Assets/Archetypes/CrowFinalSprite.png")
-const HEART_TEXTURE: Texture2D = preload("res://Assets/Archetypes/HeartFinalSprite.png")
+@export var torch_sprite_frames: SpriteFrames
+@export var snake_sprite_frames: SpriteFrames
+@export var crow_sprite_frames: SpriteFrames
+@export var heart_sprite_frames: SpriteFrames
 
 var ladder_count: int = 0
 var is_climbing: bool = false
@@ -292,6 +291,8 @@ func _ready() -> void:
 	current_shots = current_fuel
 	flight_time_left = flight_duration
 	spawn_position = global_position
+	invulnerability_timer = 0.0
+	hitstun_timer = 0.0
 	add_to_group("player")
 
 	RunState.apply_player_powers_to(self)
@@ -306,6 +307,7 @@ func _ready() -> void:
 	if anim != null:
 		anim.visible = true
 		_apply_archetype_visual()
+		anim.visible = true
 
 	_initialize_crouch_state()
 	_initialize_grapple_attack_visual()
@@ -330,19 +332,28 @@ func _apply_archetype_visual() -> void:
 	if anim == null:
 		return
 
-	var texture: Texture2D = TORCH_TEXTURE
+	var frames: SpriteFrames = torch_sprite_frames
 
 	match RunState.current_archetype:
 		RunState.ARCHETYPE_TORCH:
-			texture = TORCH_TEXTURE
+			frames = torch_sprite_frames
 		RunState.ARCHETYPE_SNAKE:
-			texture = SNAKE_TEXTURE
+			frames = snake_sprite_frames
 		RunState.ARCHETYPE_CROW:
-			texture = CROW_TEXTURE
+			frames = crow_sprite_frames
 		RunState.ARCHETYPE_HEART:
-			texture = HEART_TEXTURE
+			frames = heart_sprite_frames
 
-	PLAYER_ARCHETYPE_VISUAL_HELPER.apply_archetype_frames(anim, texture)
+	if frames == null:
+		push_error("Missing SpriteFrames resource for current archetype.")
+		return
+
+	anim.sprite_frames = frames
+
+	if anim.sprite_frames.has_animation("idle"):
+		anim.animation = &"idle"
+		anim.frame = 0
+		anim.play("idle")
 
 func set_input_enabled(enabled: bool) -> void:
 	input_enabled = enabled
